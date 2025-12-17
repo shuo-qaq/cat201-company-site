@@ -127,9 +127,11 @@ const team = [
   },
 ];
 
-// 视频：本地 mp4 更稳（离线也能演示），也可改 YouTube
-const USE_LOCAL_VIDEO = true;
-const YOUTUBE_VIDEO_ID = "VIDEO_ID";
+// --- YouTube 导入视频配置 ---
+// 1. 设置为 false 表示不使用本地视频
+const USE_LOCAL_VIDEO = false; 
+// 2. 将此 ID 替换为你 YouTube 视频链接中 v= 后面的那串字符
+const YOUTUBE_VIDEO_ID = "dQw4w9WgXcQ"; 
 
 function HomePage() {
   return (
@@ -264,7 +266,6 @@ function HomePage() {
               {work.map((w) => (
                 <div className="card glass hoverLift" key={w.title}>
                   <div className="workThumb">
-                    {/* 没有图片也不会空：显示一个占位块 */}
                     <img
                       src={w.img}
                       alt={w.title}
@@ -329,7 +330,7 @@ function HomePage() {
           </div>
         </section>
 
-        {/* VIDEO */}
+        {/* VIDEO SECTION - 此时已配置为 YouTube 模式 */}
         <section className="screen" id="video">
           <div className="container">
             <h2 className="sectionTitle">Company Intro Video</h2>
@@ -350,7 +351,7 @@ function HomePage() {
                 </div>
               )}
               <div className="muted small topGap">
-                Tip: If using YouTube, set <b>USE_LOCAL_VIDEO</b> to <b>false</b> and replace <b>YOUTUBE_VIDEO_ID</b>.
+                {!USE_LOCAL_VIDEO ? "Currently streaming via YouTube Embedded API." : "Playing local file."}
               </div>
             </div>
           </div>
@@ -360,7 +361,7 @@ function HomePage() {
         <section className="screen" id="team">
           <div className="container">
             <h2 className="sectionTitle">Leadership Team</h2>
-            <p className="sectionSub">Click a member to view a detailed profile (photo + company position included).</p>
+            <p className="sectionSub">Click a member to view a detailed profile.</p>
 
             <div className="grid three">
               {team.map((m) => (
@@ -489,10 +490,6 @@ function TeamDetailPage() {
               </ul>
             </div>
           </div>
-        </div>
-
-        <div className="muted small topGap">
-          Tip: If you add portfolio images, place them under <code>public/work/</code>.
         </div>
       </div>
     </div>
