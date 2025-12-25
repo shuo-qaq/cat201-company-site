@@ -127,11 +127,11 @@ const team = [
   },
 ];
 
-// --- YouTube 导入视频配置 ---
-// 1. 设置为 false 表示不使用本地视频
+// --- YouTube Video Configuration ---
+// 1. Set to false to use YouTube embed instead of local file
 const USE_LOCAL_VIDEO = false; 
-// 2. 将此 ID 替换为你 YouTube 视频链接中 v= 后面的那串字符
-const YOUTUBE_VIDEO_ID = "dQw4w9WgXcQ"; 
+// 2. Your YouTube Video ID
+const YOUTUBE_VIDEO_ID = "x4LNuPiJbCE"; 
 
 function HomePage() {
   return (
@@ -330,7 +330,7 @@ function HomePage() {
           </div>
         </section>
 
-        {/* VIDEO SECTION - 此时已配置为 YouTube 模式 */}
+        {/* VIDEO SECTION */}
         <section className="screen" id="video">
           <div className="container">
             <h2 className="sectionTitle">Company Intro Video</h2>
